@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://deifamrsalon.vercel.app/sitemap.xml
