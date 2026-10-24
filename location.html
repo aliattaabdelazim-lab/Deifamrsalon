@@ -240,6 +240,20 @@ footer a:hover{color:var(--neon)}
   <a class="btn ghost" href="https://wa.me/201155523508" rel="noopener">واتساب</a>
   <a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&destination=30.077357,31.6751165&destination_place_id=ChIJwVqhSTP1VxQRR6OQVAXI5ig" rel="noopener">الاتجاهات</a>
 </div>
-<script>document.getElementById("yr").textContent=new Date().getFullYear();</script>
+<script>(function(){
+  var days=["الأحد","الاثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
+  var n=new Date();
+  try{
+    var p=new Intl.DateTimeFormat("en-US",{timeZone:"Africa/Cairo",weekday:"short",hour:"numeric",hour12:false}).formatToParts(new Date());
+    var o={};p.forEach(function(x){o[x.type]=x.value});
+    var idx=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(o.weekday);
+    n={d:idx,h:parseInt(o.hour,10)%24};
+  }catch(e){n={d:n.getDay(),h:n.getHours()};}
+  var today=(n.h<2)?(n.d+6)%7:n.d;
+  var h="";
+  days.forEach(function(d,i){h+='<li'+(i===today?' class="today"':'')+'><span>'+d+'</span><span>10 ص – 2 ص</span></li>'});
+  document.getElementById("hours").innerHTML=h;
+  document.getElementById("yr").textContent=new Date().getFullYear();
+})();</script>
 </body>
 </html>
