@@ -17,3 +17,6 @@ footer a:hover{opacity:1}
 .btn.main{box-shadow:0 8px 22px rgba(255,210,31,.18)}
 .pagehead{padding-top:54px;padding-bottom:34px}
 .pagehead p{color:#9d9da6;font-size:17px}
+/* العناوين بخط أنعم وأوضح من خط الديسبلاي */
+h1,h2,h3,.card h2,.card h3{font-family:"IBM Plex Sans Arabic",Tahoma,sans-serif;font-weight:600}
+h1{letter-spacing:-.2px}
